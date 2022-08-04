@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="assets/favicon.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="css/owfont-regular.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>momentum</title>
+  </head>
+  <body id="body" class="-main-body">
+    <div class="preloader">
+      <div class="loader-wrapper">
+      <div class="loader first-loader"></div>
+      <div class="loader second-loader"></div>
+      <div class="loader third-loader"></div>
+    </div>
+    </div>
+    <header class="header">
+      <div class="player">
+        <div class="player-progress">
+          <div class="player-controls">
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+          </div>
+          <div class="player-music-name">Track 01</div>
+          <div class="player-wrapper">
+          <div class="player-current-time player-text"></div>
+          <div class="progress-scale">
+            <div class="progress-range"></div>
+          </div>
+          <div class="player-all-time player-text"></div>
+          </div>
+          <div class="volume-container">
+            <div class="volume-button">
+            </div> 
+            <div class="volume-scale">
+              <div class="volume-range"></div>
+            </div>
+            </div>
+          </div>            
+        <ul class="play-list"></ul>
+      </div>
+      </div>
+      <div class="block-wrapper">
+      <div class="todo-list">
+        <ul class="todo-list-list">
+        </ul>
+        <div class="todo-list-control">
+          <button class="todo-list__btn add-list" type="button">
+            +
+          </button>
+          <button class="todo-list__btn remove-list" type="button">
+            -
+          </button>
+        </div>
+      </div>
+      <div class="weather">
+        <input type="text" class="city" placeholder="Enter city" />
+        <i class="weather-icon owf"></i>
+        <div class="weather-error"></div>
+        <div class="description-container">
+          <span class="temperature"></span>
+          <span class="weather-description"></span>
+        </div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
+    </div>
+    </header>
+    <main class="main">
+      <div class="slider-icons">
+        <button class="slide-prev slider-icon"></button>
+        <button class="slide-next slider-icon"></button>
+      </div>
+      <time class="time"></time>
+      <date class="date"></date>
+      <div class="greeting-container">
+        <span class="greeting"></span>
+        <input type="text" class="name" placeholder="Enter name" />
+      </div>
+    </main>
+    <div class="settings">
+      <div class="settings-links">
+      <a href="https://github.com/Nexuslolz" target="_blank" class="settings-link">
+        <img src="./assets/img/GitHub.svg" alt="github" class="settings-link__img">
+      </a>
+      <a href="https://rs.school/js/" target="_blank" class="settings-link">
+        <img src="./assets/img/rs_school_js-logo.svg" alt="rsschool" class="settings-link__img">
+      </a>
+      <a class="settings-btn" ><img src="./assets/img/settings.svg" alt="settings" class="settings-btn__img">
+      </a>
+    </div>
+      <div   class="settings-form">
+        <div id="settings"  class="settings-body">
+          <a   class="settings-overlay"></a>
+          <div class="settings-content">
+            <div class="settings-win">
+              <h1 class="settings-win__header">Settings</h2>
+                <div class="devide"></div>
+              <div class="close-wrapper" ><a class="settings-close" ></a></div>
+              <ul class="settings-list">
+                <li class="settings-list__item">
+                  <p class="settings-list__name language">Language</p>
+                  <select class="settings-list__toggle list-option list-lang">
+                    <option  value="en"> English</option>
+                    <option  value="ru"> Русский</option>
+                  </select>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name photo">Photo source</p>
+                  <select class="settings-list__toggle list-option list-photo">
+                    <option class="setting-list__option" value="Unsplash"> Unsplash</option>
+                    <option class="setting-list__option" value="Flickr"> Flickr</option>
+                    <option class="setting-list__option" value="GitHub"> GitHub</option>
+                  </select>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name background">Tag to take Photo</p>
+                  <input type="text" class="settings-list__toggle list-input" placeholder="nature"></input>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name date-time">Date and time</p>
+                  <button class="settings-list__toggle list-btn" value="true">Enable</button>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name greetings">Greetings</p>
+                  <button class="settings-list__toggle list-btn" value="true">Enable</button>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name quotes">Quotes</p>
+                  <button class="settings-list__toggle list-btn" value="true">Enable</button>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name weathers">Weather</p>
+                  <button class="settings-list__toggle list-btn" value="true">Enable</button>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name players">Player</p>
+                  <button class="settings-list__toggle list-btn" value="true">Enable</button>
+                </li>
+                <li class="settings-list__item">
+                  <p class="settings-list__name todo">ToDo list</p>
+                  <button class="settings-list__toggle list-btn" value="true">Enable</button>
+                </li>
+              </ul>
+            </div>
+      </div>
+      </div>
+    </div>
+      <span class="production">© 2022</span>
+    </div>
+    <footer class="footer">
+      <button class="change-quote"></button>
+      <div>
+        <div class="quote"></div>
+        <div class="author"></div>
+      </div>
+    </footer>
+
+    <script src="js/translate.js"></script>
+    <script src="js/date.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/quotes.js"></script>
+    <script type="module" src="js/audio.js"></script>
+    <script src="js/todo-list.js"></script>
+    <script src="./js/settings.js"></script>
+
+  </body>
+</html>
