@@ -1067,3 +1067,14 @@ body {
     font-size: 10px;
   }
 }
+
+@media(max-width:700px) {
+  .header {
+    margin-bottom: 150px;
+  }
+
+  .settings {
+    bottom: 0;
+    top: 230%;
+  }
+}
