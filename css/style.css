@@ -1055,6 +1055,10 @@ body {
   .header {
     flex-wrap: wrap;
   }
+
+  .settings-list__toggle {
+    padding: 5px 5px;
+  }
 }
 
 @media(max-width:490px) {
