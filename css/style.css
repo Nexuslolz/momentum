@@ -748,6 +748,8 @@ body {
   padding: 30px;
   position: relative;
   width: 60%;
+  min-width: 410px;
+  min-height: 545px;
   opacity: 1;
   height: 60vw;
   max-width: 600px;
@@ -984,6 +986,7 @@ body {
   .quote {
     max-width: 600px;
   }
+
 }
 
 @media (max-width: 768px) {
@@ -1024,6 +1027,23 @@ body {
 
   .author {
     font-size: 12px;
+  }
+
+  .settings-win {
+    min-width: 310px;
+    min-height: 370px;
+  }
+
+  .settings-win__header {
+    font-size: 25px;
+  }
+
+  .settings-list__name {
+    font-size: 12px;
+  }
+
+  .settings-list__toggle {
+    font-size: 9px;
   }
 }
 
@@ -1075,6 +1095,6 @@ body {
 
   .settings {
     bottom: 0;
-    top: 95vh;
+    top: 93vh;
   }
 }
