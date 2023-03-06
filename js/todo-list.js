@@ -4,6 +4,8 @@ const todoList = document.querySelector('.todo-list-list')
 const key = 'plan'
 const separator = '###'
 
+// create todo list action
+
 function createItem(content) {
   const li = document.createElement('li')
   li.classList.add('todo-list__item')
@@ -26,6 +28,8 @@ function createItem(content) {
   todoList.append(li)
 }
 
+// asking question about your action
+
 addTodoBtn.addEventListener('click', () => {
   const ask = prompt(lng === 'en' ? 'What`s plan?' : 'Какие планы?')
   if (ask === null || ask === '') {
@@ -38,13 +42,14 @@ addTodoBtn.addEventListener('click', () => {
   createItem(ask)
 })
 
+// delete actions from todo list
+
 removeTodoBtn.addEventListener('click', () => {
   document.querySelectorAll('.todo-list__item').forEach((elem) => {
     elem.remove()
   })
   localStorage.removeItem(key)
 })
-
 
 function getPlan() {
   const savedData = localStorage.getItem(key)

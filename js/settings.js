@@ -5,10 +5,11 @@ const settClose = document.querySelector('.close-wrapper')
 const settOpen = document.querySelector('.settings-body')
 const settInput = document.querySelector('.list-input')
 
-window.onload = () => {
-    translatePage(selectLang.value)
-}
+// select current language and render page with it
 
+window.addEventListener('load', () => {
+    translatePage(selectLang.value)
+})
 
 selectLang.addEventListener('change', () => {
     if (selectLang.value === 'en') {
@@ -30,6 +31,7 @@ selectLang.addEventListener('change', () => {
     }
 })
 
+// settings controls
 
 settBtn.addEventListener('click', () => {
     settWin.classList.toggle('settings-win_open')
@@ -45,6 +47,8 @@ settOver.addEventListener('click', () => {
     settOpen.classList.remove('settings-body_open')
 
 })
+
+// select tag for photo search
 
 function setPhotoTag() {
     localStorage.setItem('API tag', settInput.value)
@@ -62,6 +66,8 @@ function getPhotoTag() {
         return 'nature'
     }
 }
+
+// set params visible or invisible and save it to local storage
 
 currentDate
 currentTime
@@ -115,6 +121,9 @@ settBtnIn.forEach((elem, idx) => {
     })
 })
 
+
+// get params from local storage
+
 function getSettingStatus() {
     settBtnIn.forEach((elem, idx) => {
         if (localStorage.getItem('set Btn' + idx)) {
@@ -154,13 +163,6 @@ function getSettingStatus() {
 }
 
 window.addEventListener('load', getSettingStatus)
-
-
-
-
-
-
-
 
 
 window.addEventListener('beforeunload', setPhotoTag)

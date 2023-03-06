@@ -11,10 +11,11 @@ const settTodo = document.querySelector('.todo')
 const settBtnIn = document.querySelectorAll('.list-btn')
 const settLang = document.querySelector('.language')
 
+// save language of app in local storage
 
 let lng
 let choiseLng = function () {
-    if(localStorage.getItem('lang')){
+    if (localStorage.getItem('lang')) {
         lng = localStorage.getItem('lang')
         selectLang.value = localStorage.getItem('lang')
         settingsTranslate(lng)
@@ -25,9 +26,10 @@ let choiseLng = function () {
 }
 lng = choiseLng()
 
+// translate settings params
 
-function settingsTranslate(){
-    if(lng === 'en' || localStorage.getItem('lang') === 'en'){
+function settingsTranslate() {
+    if (lng === 'en' || localStorage.getItem('lang') === 'en') {
         settHeader.textContent = 'Settings'
         settPhoto.textContent = 'Photo source'
         settBg.textContent = 'Tag to take photo'
@@ -38,14 +40,14 @@ function settingsTranslate(){
         settPlayer.textContent = 'Player'
         settTodo.textContent = 'ToDo list'
         settBtnIn.forEach((elem) => {
-            if(elem.value === 'false'){
+            if (elem.value === 'false') {
                 elem.textContent = 'Disable'
-            } else if(elem.value === 'true'){
+            } else if (elem.value === 'true') {
                 elem.textContent = 'Enable'
             }
         })
         settLang.textContent = 'Language'
-    } else if(lng === 'ru' || localStorage.getItem('lang') === 'ru'){
+    } else if (lng === 'ru' || localStorage.getItem('lang') === 'ru') {
         settHeader.textContent = 'Настройки'
         settPhoto.textContent = 'Источник фото'
         settBg.textContent = 'Тег для фото'
@@ -56,9 +58,9 @@ function settingsTranslate(){
         settPlayer.textContent = 'Плеер'
         settTodo.textContent = 'ToDo лист'
         settBtnIn.forEach((elem) => {
-            if(elem.value === 'false'){
+            if (elem.value === 'false') {
                 elem.textContent = 'Выключено'
-            } else if(elem.value === 'true'){
+            } else if (elem.value === 'true') {
                 elem.textContent = 'Включено'
             }
         })
@@ -66,8 +68,10 @@ function settingsTranslate(){
     }
 }
 
-function translatePage(lng){
-    if(lng === 'en'){
+// create translate func
+
+function translatePage(lng) {
+    if (lng === 'en') {
         setTime(lng)
         translateGreeting(lng)
         defaultName(lng)
@@ -75,7 +79,7 @@ function translatePage(lng){
         getWeather(lng)
         quotes(lng)
         settingsTranslate(lng)
-    } else if(lng === 'ru'){
+    } else if (lng === 'ru') {
         setTime(lng)
         translateGreeting(lng)
         defaultName(lng)
@@ -85,8 +89,3 @@ function translatePage(lng){
         settingsTranslate(lng)
     }
 }
-
-
-
-
-

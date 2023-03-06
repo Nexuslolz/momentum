@@ -3,6 +3,8 @@ const btnNext = document.querySelector('.slide-next');
 const body = document.querySelector('body');
 const selectSource = document.querySelector('.list-photo')
 
+// choise the source of photo background
+
 selectSource.addEventListener('change', () => {
     localStorage.setItem('source', selectSource.value)
 })
@@ -21,17 +23,22 @@ let randomNumber = Math.ceil(Math.random() * 20)
 let bgNum = String(randomNumber).padStart(2, '0')
 setBg()
 
+//define day time
+
 function setDayTime() {
-    if (greeting() === 'Good morning') {
+    const currentDayTime = greeting()
+
+    if (currentDayTime === 'Good morning') {
         return `morning`
-    } else if (greeting() === 'Good afternoon') {
+    } else if (currentDayTime === 'Good afternoon') {
         return `afternoon`
-    } else if (greeting() === 'Good evening') {
+    } else if (currentDayTime === 'Good evening') {
         return `evening`
-    } else if (greeting() === 'Good night') {
+    } else if (currentDayTime === 'Good night') {
         return `night`
     }
 }
+
 function getPhotoTag() {
     const settInput = document.querySelector('.list-input')
     if (localStorage.getItem('API tag')) {
@@ -42,6 +49,9 @@ function getPhotoTag() {
         return 'nature'
     }
 }
+
+//define background image from avaliable source try from unsplash to github
+
 async function setBg() {
     const source = getSourse()
     setDayTime()
@@ -87,6 +97,9 @@ async function setBg() {
     }
 
 }
+
+
+// slider controls
 
 btnPrev.addEventListener('click', function () {
     randomNumber--

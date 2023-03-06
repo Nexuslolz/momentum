@@ -3,6 +3,7 @@ const authorOfQuote = document.querySelector('.author');
 const btnQuote = document.querySelector('.change-quote')
 
 
+// define current quote
 
 let randomQuote = Math.round(Math.random() * 5);
 async function quotes() {
@@ -28,4 +29,6 @@ async function quotes() {
 
 quotes()
 
-btnQuote.onclick = () => quotes()
+// display current quote
+
+btnQuote.addEventListener('click', quotes)
