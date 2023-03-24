@@ -4,7 +4,7 @@ https://nexuslolz.github.io/momentum/
 
 ## Preview
 
-<img src='assets/img/momentum.gif' width='550'>
+<img src='assets/img/momentum.gif' width='350'>
 
 ## Описание
 
