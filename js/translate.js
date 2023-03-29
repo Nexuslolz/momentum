@@ -22,50 +22,61 @@ let choiseLng = function () {
     } else {
         lng = 'en'
     }
+
     return lng
 }
+
 lng = choiseLng()
 
 // translate settings params
 
 function settingsTranslate() {
-    if (lng === 'en' || localStorage.getItem('lang') === 'en') {
-        settHeader.textContent = dictionary.en.settings.header
-        settPhoto.textContent = dictionary.en.settings.source
-        settBg.textContent = dictionary.en.settings.tag
-        settDate.textContent = dictionary.en.settings.time
-        settGreeteng.textContent = dictionary.en.settings.greeting
-        settQuote.textContent = dictionary.en.settings.quotes
-        settWeather.textContent = dictionary.en.settings.weather
-        settPlayer.textContent = dictionary.en.settings.player
-        settTodo.textContent = dictionary.en.settings.todo
-        settBtnIn.forEach((elem) => {
-            if (elem.value === 'false') {
-                elem.textContent = dictionary.en.settings.btnOn
-            } else if (elem.value === 'true') {
-                elem.textContent = dictionary.en.settings.btnOff
-            }
-        })
-        settLang.textContent = dictionary.en.settings.lang
-    } else if (lng === 'ru' || localStorage.getItem('lang') === 'ru') {
-        settHeader.textContent = dictionary.ru.settings.header
-        settPhoto.textContent = dictionary.ru.settings.source
-        settBg.textContent = dictionary.ru.settings.tag
-        settDate.textContent = dictionary.ru.settings.time
-        settGreeteng.textContent = dictionary.ru.settings.greeting
-        settQuote.textContent = dictionary.ru.settings.quotes
-        settWeather.textContent = dictionary.ru.settings.weather
-        settPlayer.textContent = dictionary.ru.settings.player
-        settTodo.textContent = dictionary.ru.settings.todo
+    switch (true) {
+        case lng === 'en' || localStorage.getItem('lang') === 'en':
+            settHeader.textContent = dictionary.en.settings.header
+            settPhoto.textContent = dictionary.en.settings.source
+            settBg.textContent = dictionary.en.settings.tag
+            settDate.textContent = dictionary.en.settings.time
+            settGreeteng.textContent = dictionary.en.settings.greeting
+            settQuote.textContent = dictionary.en.settings.quotes
+            settWeather.textContent = dictionary.en.settings.weather
+            settPlayer.textContent = dictionary.en.settings.player
+            settTodo.textContent = dictionary.en.settings.todo
 
-        settBtnIn.forEach((elem) => {
-            if (elem.value === 'false') {
-                elem.textContent = dictionary.ru.settings.btnOn
-            } else if (elem.value === 'true') {
-                elem.textContent = dictionary.ru.settings.btnOff
-            }
-        })
-        settLang.textContent = dictionary.ru.settings.lang
+            settBtnIn.forEach((elem) => {
+                if (elem.value === 'false') {
+                    elem.textContent = dictionary.en.settings.btnOn
+                } else if (elem.value === 'true') {
+                    elem.textContent = dictionary.en.settings.btnOff
+                }
+            })
+
+            settLang.textContent = dictionary.en.settings.lang
+
+            break
+
+        case lng === 'ru' || localStorage.getItem('lang') === 'ru':
+            settHeader.textContent = dictionary.ru.settings.header
+            settPhoto.textContent = dictionary.ru.settings.source
+            settBg.textContent = dictionary.ru.settings.tag
+            settDate.textContent = dictionary.ru.settings.time
+            settGreeteng.textContent = dictionary.ru.settings.greeting
+            settQuote.textContent = dictionary.ru.settings.quotes
+            settWeather.textContent = dictionary.ru.settings.weather
+            settPlayer.textContent = dictionary.ru.settings.player
+            settTodo.textContent = dictionary.ru.settings.todo
+
+            settBtnIn.forEach((elem) => {
+                if (elem.value === 'false') {
+                    elem.textContent = dictionary.ru.settings.btnOn
+                } else if (elem.value === 'true') {
+                    elem.textContent = dictionary.ru.settings.btnOff
+                }
+            })
+
+            settLang.textContent = dictionary.ru.settings.lang
+
+            break
     }
 }
 

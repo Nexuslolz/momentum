@@ -8,11 +8,13 @@ const btnQuote = document.querySelector('.change-quote')
 let randomQuote = Math.round(Math.random() * 5);
 async function quotes() {
     let url
+
     if (lng === 'en') {
         url = 'js/quotes.json'
     } else if (lng === 'ru') {
         url = 'js/quotes-translate.json'
     }
+
     const res = await fetch(url);
     const data = await res.json();
 
@@ -20,6 +22,7 @@ async function quotes() {
     authorOfQuote.textContent = data[randomQuote].author;
 
     randomQuote++
+
     if (randomQuote >= data.length) {
         randomQuote = 0
     } else if (randomQuote <= 0) {

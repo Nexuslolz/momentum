@@ -23,6 +23,7 @@ for (let i = 0; i < playList.length; i++) {
     li.textContent = playList[i].title
     listForPlay.append(li)
 }
+
 const playItem = document.querySelectorAll('.play-item');
 
 //////// change song when it ends
@@ -31,9 +32,9 @@ function checkDuration() {
     if (audio.currentTime === audio.duration) {
         nextAudio()
     }
+
     setTimeout(checkDuration, 1000)
 }
-
 
 checkDuration()
 
@@ -44,6 +45,7 @@ function classToggle() {
     playItem.forEach((item) => {
         item.classList.remove('item-active')
     })
+
     for (let i = 0; i <= playItem.length; i++) {
         if (playNum === i) {
             playItem[i].classList.add('item-active')
@@ -79,6 +81,7 @@ function playAudio() {
 
     classToggle()
     audio.play();
+
     playerPlay.classList.add('pause')
 }
 
@@ -86,6 +89,7 @@ function pauseAudio() {
     playItem.forEach((item) => {
         item.classList.remove('item-active')
     })
+
     clearInterval(timerIdCurrentTime)
     isPlay = false
     audio.pause();
@@ -98,18 +102,22 @@ function pauseAudio() {
 function prevAudio() {
     clearInterval(timerIdCurrentTime)
     playNum--
+
     if (playNum < 0) {
         playNum = playList.length - 1
     }
+
     classToggle()
     playAudio()
 }
 function nextAudio() {
     clearInterval(timerIdCurrentTime)
     playNum++
+
     if (playNum >= playList.length) {
         playNum = 0
     }
+
     classToggle()
     playAudio()
 }
@@ -126,6 +134,7 @@ volumeSlider.addEventListener('click', (event) => {
     const sliderVolumeWidth = window.getComputedStyle(volumeSlider).width;
     const newVolume = event.offsetX / parseInt(sliderVolumeWidth)
     audio.volume = newVolume;
+
     if (audio.muted) {
         volumeProgress.style.width = 0
     } else {
@@ -146,11 +155,13 @@ function muteMusic() {
         audio.volume = 0.5
         volumeProgress.style.width = 50 + '%'
         audio.muted = false
+
         mute.classList.remove('volume-button_off')
     } else {
         audio.volume = 0;
         volumeProgress.style.width = 0
         audio.muted = true
+
         mute.classList.add('volume-button_off')
     }
 }

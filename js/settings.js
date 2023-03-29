@@ -12,22 +12,28 @@ window.addEventListener('load', () => {
 })
 
 selectLang.addEventListener('change', () => {
-    if (selectLang.value === 'en') {
-        lng = selectLang.value
-        localStorage.setItem('lang', selectLang.value)
-        if (localStorage.getItem('lang') === 'en') {
-            translatePage(localStorage.getItem('lang'))
-        } else {
-            translatePage(lng)
-        }
-    } else if (selectLang.value === 'ru') {
-        lng = selectLang.value
-        localStorage.setItem('lang', selectLang.value)
-        if (localStorage.getItem('lang') === 'ru') {
-            translatePage(localStorage.getItem('lang'))
-        } else {
-            translatePage(lng)
-        }
+    switch (selectLang.value) {
+        case 'en':
+            lng = selectLang.value
+            localStorage.setItem('lang', selectLang.value)
+            if (localStorage.getItem('lang') === 'en') {
+                translatePage(localStorage.getItem('lang'))
+            } else {
+                translatePage(lng)
+            }
+
+            break
+
+        case 'ru':
+            lng = selectLang.value
+            localStorage.setItem('lang', selectLang.value)
+            if (localStorage.getItem('lang') === 'ru') {
+                translatePage(localStorage.getItem('lang'))
+            } else {
+                translatePage(lng)
+            }
+
+            break
     }
 })
 
@@ -81,54 +87,28 @@ const settArr = [currentTime, greetingBlock, quotesBlock, weatherBlock, playerBl
 
 settBtnIn.forEach((elem, idx) => {
     elem.addEventListener('click', () => {
-        if (elem.value === 'true') {
-            elem.value = 'false'
-            if (lng === 'en') {
-                elem.textContent = dictionary.en.settings.btnOn
-            } else if (lng === 'ru') {
-                elem.textContent = dictionary.ru.settings.btnOn
-            }
-            settArr[idx].style.opacity = '0'
-            settArr[idx].style.visibility = 'hidden'
-            if (idx === 0) {
-                currentDate.style.opacity = '0'
-                currentDate.style.visibility = 'hidden'
-            }
+        switch (elem.value) {
+            case 'true':
+                elem.value = 'false'
+                if (lng === 'en') {
+                    elem.textContent = dictionary.en.settings.btnOn
+                } else if (lng === 'ru') {
+                    elem.textContent = dictionary.ru.settings.btnOn
+                }
+                settArr[idx].style.opacity = '0'
+                settArr[idx].style.visibility = 'hidden'
+                if (idx === 0) {
+                    currentDate.style.opacity = '0'
+                    currentDate.style.visibility = 'hidden'
+                }
 
-            localStorage.setItem('set Item' + settArr.indexOf(settArr[idx]), elem.value)
-            localStorage.setItem('set Btn' + idx, elem.value)
+                localStorage.setItem('set Item' + settArr.indexOf(settArr[idx]), elem.value)
+                localStorage.setItem('set Btn' + idx, elem.value)
 
-        } else if (elem.value === 'false') {
-            elem.value = 'true'
-            if (lng === 'en') {
-                elem.textContent = dictionary.en.settings.btnOff
-            } else if (lng === 'ru') {
-                elem.textContent = dictionary.ru.settings.btnOff
-            }
-            settArr[idx].style.opacity = '1'
-            settArr[idx].style.visibility = 'visible'
-            if (idx === 4 || idx === 5) {
-                settArr[idx].style.opacity = '0.8'
-            }
-            if (idx === 0) {
-                currentDate.style.opacity = '1'
-                currentDate.style.visibility = 'visible'
-            }
+                break
 
-            localStorage.setItem('set Item' + settArr.indexOf(settArr[idx]), elem.value)
-            localStorage.setItem('set Btn' + idx, elem.value)
-        }
-    })
-})
-
-
-// get params from local storage
-
-function getSettingStatus() {
-    settBtnIn.forEach((elem, idx) => {
-        if (localStorage.getItem('set Btn' + idx)) {
-            elem.value = localStorage.getItem('set Btn' + idx)
-            if (elem.value === 'true') {
+            case 'false':
+                elem.value = 'true'
                 if (lng === 'en') {
                     elem.textContent = dictionary.en.settings.btnOff
                 } else if (lng === 'ru') {
@@ -143,20 +123,59 @@ function getSettingStatus() {
                     currentDate.style.opacity = '1'
                     currentDate.style.visibility = 'visible'
                 }
-            } else if (elem.value === 'false') {
-                if (lng === 'en') {
-                    elem.textContent = dictionary.en.settings.btnOn
-                } else if (lng === 'ru') {
-                    elem.textContent = dictionary.ru.settings.btnOn
-                }
-                settArr[idx].style.opacity = '0'
-                settArr[idx].style.visibility = 'hidden'
-                if (idx === 0) {
-                    currentDate.style.opacity = '0'
-                    currentDate.style.visibility = 'hidden'
-                }
-            } else {
-                elem.value = 'true'
+
+                localStorage.setItem('set Item' + settArr.indexOf(settArr[idx]), elem.value)
+                localStorage.setItem('set Btn' + idx, elem.value)
+
+                break
+        }
+    })
+})
+
+
+// get params from local storage
+
+function getSettingStatus() {
+    settBtnIn.forEach((elem, idx) => {
+        if (localStorage.getItem('set Btn' + idx)) {
+            elem.value = localStorage.getItem('set Btn' + idx)
+
+            switch (elem.value) {
+                case 'true':
+                    if (lng === 'en') {
+                        elem.textContent = dictionary.en.settings.btnOff
+                    } else if (lng === 'ru') {
+                        elem.textContent = dictionary.ru.settings.btnOff
+                    }
+                    settArr[idx].style.opacity = '1'
+                    settArr[idx].style.visibility = 'visible'
+                    if (idx === 4 || idx === 5) {
+                        settArr[idx].style.opacity = '0.8'
+                    }
+                    if (idx === 0) {
+                        currentDate.style.opacity = '1'
+                        currentDate.style.visibility = 'visible'
+                    }
+
+                    break
+
+                case 'false':
+                    if (lng === 'en') {
+                        elem.textContent = dictionary.en.settings.btnOn
+                    } else if (lng === 'ru') {
+                        elem.textContent = dictionary.ru.settings.btnOn
+                    }
+                    settArr[idx].style.opacity = '0'
+                    settArr[idx].style.visibility = 'hidden'
+                    if (idx === 0) {
+                        currentDate.style.opacity = '0'
+                        currentDate.style.visibility = 'hidden'
+                    }
+
+                    break
+
+                default:
+                    elem.value = 'true'
             }
         }
     })

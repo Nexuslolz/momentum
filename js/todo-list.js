@@ -24,7 +24,6 @@ function createItem(content) {
   customCheckbox.classList.add('todo-list__checkbox')
   label.append(customCheckbox)
 
-
   todoList.append(li)
 }
 
@@ -32,6 +31,7 @@ function createItem(content) {
 
 addTodoBtn.addEventListener('click', () => {
   const ask = prompt(lng === 'en' ? dictionary.en.todo.ask : dictionary.ru.todo.ask)
+
   if (ask === null || ask === '') {
     return
   }
@@ -39,6 +39,7 @@ addTodoBtn.addEventListener('click', () => {
   const prevData = localStorage.getItem(key)
   const keptData = prevData ? prevData + separator : ''
   localStorage.setItem(key, keptData + ask)
+
   createItem(ask)
 })
 
@@ -48,6 +49,7 @@ removeTodoBtn.addEventListener('click', () => {
   document.querySelectorAll('.todo-list__item').forEach((elem) => {
     elem.remove()
   })
+
   localStorage.removeItem(key)
 })
 
@@ -56,9 +58,12 @@ function getPlan() {
   if (!(savedData)) {
     return
   }
+
   const items = savedData.split(separator)
+
   for (const item of items) {
     createItem(item)
   }
 }
+
 window.addEventListener('load', getPlan)
