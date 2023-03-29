@@ -28,13 +28,13 @@ setBg()
 function setDayTime() {
     const currentDayTime = greeting()
 
-    if (currentDayTime === 'Good morning') {
+    if (currentDayTime === dictionary.en.greetings.morning) {
         return `morning`
-    } else if (currentDayTime === 'Good afternoon') {
+    } else if (currentDayTime === dictionary.en.greetings.afternoon) {
         return `afternoon`
-    } else if (currentDayTime === 'Good evening') {
+    } else if (currentDayTime === dictionary.en.greetings.evening) {
         return `evening`
-    } else if (currentDayTime === 'Good night') {
+    } else if (currentDayTime === dictionary.en.greetings.night) {
         return `night`
     }
 }

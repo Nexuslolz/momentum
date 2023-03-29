@@ -30,41 +30,42 @@ lng = choiseLng()
 
 function settingsTranslate() {
     if (lng === 'en' || localStorage.getItem('lang') === 'en') {
-        settHeader.textContent = 'Settings'
-        settPhoto.textContent = 'Photo source'
-        settBg.textContent = 'Tag to take photo'
-        settDate.textContent = 'Date and time'
-        settGreeteng.textContent = 'Greetings'
-        settQuote.textContent = 'Quotes'
-        settWeather.textContent = 'Weather'
-        settPlayer.textContent = 'Player'
-        settTodo.textContent = 'ToDo list'
+        settHeader.textContent = dictionary.en.settings.header
+        settPhoto.textContent = dictionary.en.settings.source
+        settBg.textContent = dictionary.en.settings.tag
+        settDate.textContent = dictionary.en.settings.time
+        settGreeteng.textContent = dictionary.en.settings.greeting
+        settQuote.textContent = dictionary.en.settings.quotes
+        settWeather.textContent = dictionary.en.settings.weather
+        settPlayer.textContent = dictionary.en.settings.player
+        settTodo.textContent = dictionary.en.settings.todo
         settBtnIn.forEach((elem) => {
             if (elem.value === 'false') {
-                elem.textContent = 'Disable'
+                elem.textContent = dictionary.en.settings.btnOn
             } else if (elem.value === 'true') {
-                elem.textContent = 'Enable'
+                elem.textContent = dictionary.en.settings.btnOff
             }
         })
-        settLang.textContent = 'Language'
+        settLang.textContent = dictionary.en.settings.lang
     } else if (lng === 'ru' || localStorage.getItem('lang') === 'ru') {
-        settHeader.textContent = 'Настройки'
-        settPhoto.textContent = 'Источник фото'
-        settBg.textContent = 'Тег для фото'
-        settDate.textContent = 'Дата и время'
-        settGreeteng.textContent = 'Приветствие'
-        settQuote.textContent = 'Цитаты'
-        settWeather.textContent = 'Погода'
-        settPlayer.textContent = 'Плеер'
-        settTodo.textContent = 'ToDo лист'
+        settHeader.textContent = dictionary.ru.settings.header
+        settPhoto.textContent = dictionary.ru.settings.source
+        settBg.textContent = dictionary.ru.settings.tag
+        settDate.textContent = dictionary.ru.settings.time
+        settGreeteng.textContent = dictionary.ru.settings.greeting
+        settQuote.textContent = dictionary.ru.settings.quotes
+        settWeather.textContent = dictionary.ru.settings.weather
+        settPlayer.textContent = dictionary.ru.settings.player
+        settTodo.textContent = dictionary.ru.settings.todo
+
         settBtnIn.forEach((elem) => {
             if (elem.value === 'false') {
-                elem.textContent = 'Выключено'
+                elem.textContent = dictionary.ru.settings.btnOn
             } else if (elem.value === 'true') {
-                elem.textContent = 'Включено'
+                elem.textContent = dictionary.ru.settings.btnOff
             }
         })
-        settLang.textContent = 'Язык'
+        settLang.textContent = dictionary.ru.settings.lang
     }
 }
 

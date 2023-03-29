@@ -20,14 +20,14 @@ async function getWeather() {
     temperature.textContent = Math.round(data.main.temp) + '°C',
       weatherDescription.textContent = data.weather[0].description
     if (lng === 'en') {
-      windSpeed.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
-      humidity.textContent = `Humidity: ${data.main.humidity}%`
+      windSpeed.textContent = `${dictionary.en.weather.wind}: ${Math.round(data.wind.speed)} m/s`
+      humidity.textContent = `${dictionary.en.weather.humidity}: ${data.main.humidity}%`
     } else if (lng === 'ru') {
-      windSpeed.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`
-      humidity.textContent = `Влажность: ${data.main.humidity}%`
+      windSpeed.textContent = `${dictionary.ru.weather.wind}: ${Math.round(data.wind.speed)} м/с`
+      humidity.textContent = `${dictionary.ru.weather.humidity}: ${data.main.humidity}%`
     }
   } catch (e) {
-    weatherErr.textContent = 'Error 404 not found'
+    weatherErr.textContent = 'Error 404 Not found'
     temperature.textContent = '',
       weatherDescription.textContent = ''
     windSpeed.textContent = ''
@@ -40,9 +40,9 @@ async function getWeather() {
 
 function defaultCity() {
   if (lng === 'ru') {
-    return city.setAttribute('placeholder', 'Введите город')
+    return city.setAttribute('placeholder', dictionary.ru.weather.input)
   } else if (lng === 'en') {
-    return city.setAttribute('placeholder', 'Enter city')
+    return city.setAttribute('placeholder', dictionary.en.weather.input)
   }
 }
 
@@ -54,7 +54,7 @@ function getCity() {
   if (localStorage.getItem('city')) {
     city.value = localStorage.getItem('city')
   } else {
-    city.value = 'Minsk'
+    city.value = 'Moscow'
   }
   getWeather()
 }

@@ -84,9 +84,9 @@ settBtnIn.forEach((elem, idx) => {
         if (elem.value === 'true') {
             elem.value = 'false'
             if (lng === 'en') {
-                elem.textContent = 'Disable'
+                elem.textContent = dictionary.en.settings.btnOn
             } else if (lng === 'ru') {
-                elem.textContent = 'Выключено'
+                elem.textContent = dictionary.ru.settings.btnOn
             }
             settArr[idx].style.opacity = '0'
             settArr[idx].style.visibility = 'hidden'
@@ -101,9 +101,9 @@ settBtnIn.forEach((elem, idx) => {
         } else if (elem.value === 'false') {
             elem.value = 'true'
             if (lng === 'en') {
-                elem.textContent = 'Enable'
+                elem.textContent = dictionary.en.settings.btnOff
             } else if (lng === 'ru') {
-                elem.textContent = 'Включено'
+                elem.textContent = dictionary.ru.settings.btnOff
             }
             settArr[idx].style.opacity = '1'
             settArr[idx].style.visibility = 'visible'
@@ -130,9 +130,9 @@ function getSettingStatus() {
             elem.value = localStorage.getItem('set Btn' + idx)
             if (elem.value === 'true') {
                 if (lng === 'en') {
-                    elem.textContent = 'Enable'
+                    elem.textContent = dictionary.en.settings.btnOff
                 } else if (lng === 'ru') {
-                    elem.textContent = 'Включено'
+                    elem.textContent = dictionary.ru.settings.btnOff
                 }
                 settArr[idx].style.opacity = '1'
                 settArr[idx].style.visibility = 'visible'
@@ -145,9 +145,9 @@ function getSettingStatus() {
                 }
             } else if (elem.value === 'false') {
                 if (lng === 'en') {
-                    elem.textContent = 'Disable'
+                    elem.textContent = dictionary.en.settings.btnOn
                 } else if (lng === 'ru') {
-                    elem.textContent = 'Выключено'
+                    elem.textContent = dictionary.ru.settings.btnOn
                 }
                 settArr[idx].style.opacity = '0'
                 settArr[idx].style.visibility = 'hidden'

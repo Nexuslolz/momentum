@@ -31,7 +31,7 @@ function createItem(content) {
 // asking question about your action
 
 addTodoBtn.addEventListener('click', () => {
-  const ask = prompt(lng === 'en' ? 'What`s plan?' : 'Какие планы?')
+  const ask = prompt(lng === 'en' ? dictionary.en.todo.ask : dictionary.ru.todo.ask)
   if (ask === null || ask === '') {
     return
   }

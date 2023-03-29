@@ -30,13 +30,13 @@ function greeting() {
     const hours = date.getHours();
 
     if (hours >= 6 && hours <= 11) {
-        return 'Good morning'
+        return dictionary.en.greetings.morning
     } else if (hours >= 12 && hours <= 17) {
-        return 'Good afternoon'
+        return dictionary.en.greetings.afternoon
     } else if (hours >= 18 && hours <= 23) {
-        return 'Good evening'
+        return dictionary.en.greetings.evening
     } else if (hours >= 0 && hours <= 5) {
-        return 'Good night'
+        return dictionary.en.greetings.night
     }
 }
 
@@ -46,14 +46,14 @@ function translateGreeting(lng) {
     if (lng === 'en') {
         return greeting()
     } else if (lng === 'ru') {
-        if (greeting() === 'Good morning') {
-            return 'Доброе утро'
-        } else if (greeting() === 'Good afternoon') {
-            return 'Добрый день'
-        } else if (greeting() === 'Good evening') {
-            return 'Добрый вечер'
-        } else if (greeting() === 'Good night') {
-            return 'Доброй ночи'
+        if (greeting() === dictionary.en.greetings.morning) {
+            return dictionary.ru.greetings.morning
+        } else if (greeting() === dictionary.en.greetings.afternoon) {
+            return dictionary.ru.greetings.afternoon
+        } else if (greeting() === dictionary.en.greetings.evening) {
+            return dictionary.ru.greetings.evening
+        } else if (greeting() === dictionary.en.greetings.night) {
+            return dictionary.ru.greetings.night
         }
     }
 }
@@ -62,9 +62,9 @@ function translateGreeting(lng) {
 
 function defaultName(lng) {
     if (lng === 'ru') {
-        yourName.setAttribute('placeholder', 'Введите имя')
+        yourName.setAttribute('placeholder', dictionary.ru.time.input)
     } else if (lng === 'en') {
-        yourName.setAttribute('placeholder', 'Enter name')
+        yourName.setAttribute('placeholder', dictionary.en.time.input)
     }
 }
 
